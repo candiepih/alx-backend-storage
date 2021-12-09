@@ -7,7 +7,7 @@ CREATE PROCEDURE ComputeAverageScoreForUser(
 BEGIN
 	UPDATE users SET overall_score = (
 		SELECT AVG(score)
-		FROM corrections WHERE user_id=user_id)
+		FROM corrections WHERE corrections.user_id=user_id)
 	WHERE id=user_id;
 
 END;$$
