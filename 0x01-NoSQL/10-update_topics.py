@@ -1,4 +1,4 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Contains a function that changes all topics
 of a school document based on the name:

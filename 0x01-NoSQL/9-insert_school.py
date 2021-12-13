@@ -9,10 +9,10 @@ def insert_school(mongo_collection, **kwargs):
     """
     Inserts a new document in a collection
     Args:
-        mongo_collection: pymongo collecetion object
+        mongo_collection: pymongo collection object
         kwargs: dictionary of objects to insert
     Returns:
-        Id of the new document
+        id of the new document
     """
-    id = mongo_collection.insert(kwargs)
-    return id
+    doc_id = mongo_collection.insert(kwargs)
+    return doc_id
