@@ -84,12 +84,12 @@ def replay(method: Callable) -> None:
         None
     """
     name = method.__qualname__
-    cache = redis.Redis()
+    cache = method.__self__._redis
     called = cache.get(name)
     print(f"{name} was called {called.decode('utf-8')} times:")
     inputs = cache.lrange(name + ":inputs", 0, -1)
     outputs = cache.lrange(name + ":outputs", 0, -1)
-    for i, o in list(zip(inputs, outputs)):
+    for i, o in zip(inputs, outputs):
         print("{}(*{}) -> {}".format(name, i.decode('utf-8'),
                                      o.decode('utf-8')))
 
